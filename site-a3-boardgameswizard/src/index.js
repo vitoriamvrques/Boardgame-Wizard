@@ -1,62 +1,59 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './App.css'; // Arquivo CSS onde iremos estilizar
 
-const ChatGptBoardGame = () => {
-  const [input, setInput] = useState('');
-  const [messages, setMessages] = useState([]);
-
-  const handleSendMessage = async () => {
-    if (input.trim()) {
-      const userMessage = { role: 'user', content: input };
-      setMessages([...messages, userMessage]);
-
-      try {
-        const response = await axios.post(
-          'https://api.openai.com/v1/chat/completions',
-          {
-            model: 'gpt-3.5-turbo',
-            messages: [
-              ...messages,
-              userMessage,
-            ],
-          },
-          {
-            headers: {
-              'Authorization': `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`,
-              'Content-Type': 'application/json',
-            },
-          }
-        );
-
-        const botMessage = response.data.choices[0].message;
-        setMessages([...messages, userMessage, botMessage]);
-      } catch (error) {
-        console.error('Erro ao se comunicar com a API do ChatGPT', error);
-      }
-      setInput('');
-    }
-  };
-
+// Componente Header
+const Header = () => {
   return (
-    <div style={{ margin: '20px' }}>
-      <h1>ChatGPT - Ideias para Jogos de Tabuleiro</h1>
-      <div style={{ border: '1px solid black', padding: '10px', height: '300px', overflowY: 'scroll' }}>
-        {messages.map((msg, index) => (
-          <div key={index} style={{ margin: '10px 0' }}>
-            <strong>{msg.role === 'user' ? 'Você' : 'ChatGPT'}:</strong> {msg.content}
-          </div>
-        ))}
-      </div>
-      <input
-        type="text"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        placeholder="Digite sua ideia para o jogo de tabuleiro"
-        style={{ width: '80%', padding: '10px' }}
-      />
-      <button onClick={handleSendMessage} style={{ padding: '10px' }}>Enviar</button>
+    <div className="header">
+      <img src="https://cdn-icons-png.flaticon.com/512/10437/10437838.png" alt="Ícone" className="icon" />
+      <h1>Board Games Wizard</h1>
     </div>
   );
 };
 
-export default ChatGptBoardGame;
+// Componente ChatWindow
+const ChatWindow = () => {
+  return (
+    <div className="chat-window">
+      {/* Aqui irão aparecer as mensagens do chat */}
+    </div>
+  );
+};
+
+// Componente MessageInput
+const MessageInput = () => {
+  return (
+    <div className='row'>
+      <div class="col-xs-6">
+        <div className="message-input">
+          <input type="text" placeholder="Digite sua mensagem..." />
+        </div>
+      </div>
+      <button type="submit">Enviar</button>
+    </div>
+   
+  );
+};
+
+// Componente App (raiz)
+const App = () => {
+  return (
+    <div className="app">
+      <Header />
+      <ChatWindow />
+      <MessageInput />
+    </div>
+  );
+};
+
+export default App;
+
+
+
+
+
+ReactDOM.render(
+    <App/>,
+    document.querySelector("#root")
+)
