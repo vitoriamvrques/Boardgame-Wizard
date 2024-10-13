@@ -2,7 +2,7 @@
 body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Yatra One', 'Montserrat';
     height: 100%;
   }
   
@@ -20,20 +20,23 @@ body, html {
   .header {
     display: flex;
     align-items: center;
-    background-color: #fdd835;
+    background-color: #fada4c;
     padding: 10px;
+    align-items: center;
+    justify-content: center;
   }
   
   .icon {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     margin-right: 10px;
   }
   
   h1 {
-    font-size: 24px;
-    color: #5c3c92;
+    font-size: 30px;
+    color: #5426a3;
     font-family: ;
+    height: 50%;
   }
   
   /* Estilo da janela de chat */
