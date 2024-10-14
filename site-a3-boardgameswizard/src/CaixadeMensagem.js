@@ -1,19 +1,17 @@
-import React from 'react'
+import React from 'react';
 
-// Componente MessageInput
 const CaixaDeMensagem = () => {
     return (
-      <div className='row'>
-        <div class="col-xs-6">
-          <div className="message-input">
-            <input type="text" placeholder="Digite sua mensagem..." />
-          </div>
+        <div className="message-input">
+            <input 
+                type="text" 
+                className="form-control" 
+                placeholder="Digite sua mensagem..." 
+                aria-label="Digite sua mensagem"
+            />
+            <button className="btn btn-primary" type="submit">Enviar</button>
         </div>
-        <button type="submit">Enviar</button>
-      </div>
-     
     );
-  };
-  
+};
 
-  export default CaixaDeMensagem;
+export default CaixaDeMensagem;

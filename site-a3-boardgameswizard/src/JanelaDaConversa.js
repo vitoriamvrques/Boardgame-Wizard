@@ -1,17 +1,23 @@
 import React from 'react';
 import ListaDeConversas from './ListaDeConversas';
+import CaixaDeMensagem from './CaixadeMensagem';
 
-
-// Componente ChatWindow
 const JanelaDaConversa = () => {
     return (
-        <div className='row chat-container'>
-        <ListaDeConversas />   
-        <div className="chat-window col-12 col-md-6 col-lg-9">
-        {/* Aqui irão aparecer as mensagens do chat */}
+        <div className="chat-container">
+            {/* Sidebar à esquerda ocupando 3 colunas em tela grande */}
+                <ListaDeConversas />
+          
+            {/* Janela de conversas */}
+            <div className="col d-flex flex-column">
+                <div className="chat-window flex-grow-1"> 
+                    {/* Aqui aparecem as mensagens do chat */}
+                </div>
+
+                {/* Caixa de mensagens */}
+                <CaixaDeMensagem />
+            </div>
         </div>
-        </div>
-    
     );
 };
 

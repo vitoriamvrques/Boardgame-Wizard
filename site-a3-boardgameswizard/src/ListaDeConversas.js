@@ -4,18 +4,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const ListaDeConversas = () => {
     const conversas = [
         { nome: 'O MAGO', ultimaMensagem: 'Última mensagem...' },
-        // Adicione mais conversas aqui
+        // informações que vem do banco de dados 
     ];
 
     return (
-        <div className="col-12 col-md-4 col-lg-3 bg-light border-end">
-            <div className="p-3">
-                <h5>Conversas</h5>
-                <ul className="list-unstyled">
-                    {conversas.map((conversa, index) => (
-                        <li key={index} className="d-flex align-items-center mb-3">
+            <div className="col-12 col-md-4 col-lg-3 vh-100 overflow-auto lista-de-conversas">
+                <div className="p-3">
+                    <h5>Ideias anteriores</h5>
+                        <ul className="list-unstyled">
+                             {conversas.map((conversa, index) => (
+                                <li key={index} className="d-flex align-items-center mb-3 p-2 rounded">
                             <img 
-                                src={`https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F014%2F751%2F386%2Foriginal%2Fcartoon-character-a-cute-old-grey-haired-mage-holding-a-stick-icon-flat-cartoon-style-free-vector.jpg&f=1&nofb=1&ipt=550c261bdd73fa052765d35a7ac2021bdc7da9de1609d39f495e191a6918585c&ipo=images?text=${conversa.nome[0]}`} 
+                                src={`https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F1183%2F1183773.png&f=1&nofb=1&ipt=20a525f547489698a635260698a2bc875883858344bfb3998b06c076244f431e&ipo=images`} 
                                 alt={conversa.nome} 
                                 className="rounded-circle me-3"
                                 width="50"
@@ -26,10 +26,10 @@ const ListaDeConversas = () => {
                                 <p className="text-muted mb-0">{conversa.ultimaMensagem}</p>
                             </div>
                         </li>
-                    ))}
-                </ul>
+                          ))}
+                        </ul>
+                    </div>
             </div>
-        </div>
     );
 };
 
