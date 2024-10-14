@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'; // Arquivo CSS onde iremos estilizar
 import CaixaDeMensagem from './CaixadeMensagem.js'; 
 import Cabecalho from'./Cabecalho.js';
-import  JanelaDaConversa from './JanelaDaConversa.js';
+import JanelaDaConversa from './JanelaDaConversa.js';
 
 
 
@@ -26,3 +26,4 @@ ReactDOM.render(
     <App/>,
     document.querySelector("#root")
 )
+
