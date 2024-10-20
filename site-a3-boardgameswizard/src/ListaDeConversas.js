@@ -8,7 +8,7 @@ const ListaDeConversas = () => {
     ];
 
     return (
-            <div className="col-12 col-md-4 col-lg-3 vh-100 overflow-auto lista-de-conversas">
+            <div className="col-12 col-xs-1 col-md-2 col-lg-3 overflow-auto lista-de-conversas">
                 <div className="p-3">
                     <h5>Ideias anteriores</h5>
                         <ul className="list-unstyled">

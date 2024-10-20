@@ -9,5 +9,4 @@ const Cabecalho = () => {
       </div>
     );
   };
-
   export default Cabecalho;
