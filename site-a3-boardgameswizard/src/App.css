@@ -1,0 +1,162 @@
+/* Estilos globais */
+body, html {
+
+  margin: 0;
+  padding: 0;
+  font-family: 'Yatra One', 'Montserrat';
+  height: 100%;
+
+    margin: 0;
+    padding: 0;
+    font-family: 'Yatra One', 'Montserrat';
+    height: 100%;
+  }
+  
+  /* Fundo da aplicação */
+  .app {
+    background-image: url('https://cdnb.artstation.com/p/assets/images/images/018/743/171/large/chloe-beckett-asset.jpg?1560530966');
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Estilo do Header */
+  .header {
+    display: flex;
+    align-items: center;
+    background-color: #fada4c;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+  
+  h1 {
+    font-size: 30px;
+    color: #5426a3;
+    height: 50%;
+
+  }
+  
+  /* Estilo da janela de chat */
+  .chat-window {
+    flex: 1;
+    background-color: rgba(245, 223, 129, 0.63); /* Fundo transparente */
+    margin: 20px;
+    border-radius: 10px;
+    overflow-y: auto;
+    padding: 20px;
+    height: 100%;
+  }
+
+  .chat-container {
+    display: flex;
+    height: calc(100vh - 60px); /* Ajustar a altura de acordo com o cabeçalho */
+  }
+
+  .lista-de-conversas {
+    border-right: 1px solid rgba(245, 223, 129, 0.63); /* Borda à direita */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra à direita */
+    flex: 0 0 30%; /* Largura da lista de conversas */
+    height: 100%;
+    overflow-y: auto; /* Habilitar rolagem vertical se necessário */
+   
+
+}
+
+/* Fundo da aplicação */
+.app {
+  background-image: url('https://cdnb.artstation.com/p/assets/images/images/018/743/171/large/chloe-beckett-asset.jpg?1560530966');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Estilo do Header */
+.header {
+  display: flex;
+  align-items: center;
+  background-color: #fada4c;
+  padding: 10px;
+  justify-content: center;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+h1 {
+  font-size: 30px;
+  color: #5426a3;
+}
+
+/* Estilo da janela de chat */
+.chat-container {
+  display: flex;
+  height: calc(100vh - 60px); /* Ajusta a altura considerando o cabeçalho */
+}
+
+.chat-window {
+  flex: 1;
+  background-color: rgba(245, 223, 129, 0.63); /* Fundo transparente */
+  margin: 20px;
+  border-radius: 10px;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.lista-de-conversas {
+  flex: 0 0 15%; /* Define a largura da lista de conversas */
+  background-color: #fada4c;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.lista-de-conversas li:hover {
+  background-color: purple;
+  border-radius: 5px;
+}
+
+/* Estilo do input de mensagem */
+.message-input {
+  display: flex;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100%;
+}
+
+.message-input input {
+  flex-grow: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.message-input button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  background-color: #5c3c92;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.message-input button:hover {
+  background-color: #482a7c;
+}
