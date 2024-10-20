@@ -5,6 +5,8 @@ import './App.css';
 import Cabecalho from './Cabecalho';
 import JanelaDaConversa from './JanelaDaConversa';
 
+
+//app
 const App = () => {
   return (
     <div className="app">
