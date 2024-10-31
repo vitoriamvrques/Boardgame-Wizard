@@ -13,7 +13,7 @@ const openai = new OpenAI(OPENAI_API_KEY)
 
 
 
-
+// api envia Prompt para OPENAI 
 
 app.post('/pergunte-ao-chatgpt', async (req, res) => {
     const { prompt } = req.body
@@ -30,3 +30,19 @@ app.post('/pergunte-ao-chatgpt', async (req, res) => {
     res.json({completion: completion.choices[0].message.content})
     })
     
+
+
+
+// conecta com o Banco de Dados para guardar histórico 
+
+const express = require ('express')
+
+app.use(express.json())
+const porta = 3000
+app.listen(porta, () => {} )
+
+
+
+// api envia a completion para o banco de dados MYSQL 
+
+app.post()
