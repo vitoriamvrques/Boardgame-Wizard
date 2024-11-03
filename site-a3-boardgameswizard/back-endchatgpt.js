@@ -1,19 +1,14 @@
 require('dotenv').config()
 const { OpenAI } = require ('openai')
-//importamos o express
 const express = require('express')
-//construímos o objeto que viabiliza a especificação de endpoints
 const app = express()
-//aplicamos o middleware de transformação JSON
 app.use(express.json())
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY
-const openai = new OpenAI(OPENAI_API_KEY)
-//especificamos o endpoint de interesse
-//POST /pergunte-ao-chatgpt
 
 
 
 // api envia Prompt para OPENAI 
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY
+const openai = new OpenAI(OPENAI_API_KEY)
 
 app.post('/pergunte-ao-chatgpt', async (req, res) => {
     const { prompt } = req.body
@@ -27,22 +22,14 @@ app.post('/pergunte-ao-chatgpt', async (req, res) => {
     model: model,
     max_tokens: max_tokens
     });
-    res.json({completion: completion.choices[0].message.content})
+    const respostaGPT = res.json({completion: completion.choices[0].message.content})
     })
     
 
-
-
-// conecta com o Banco de Dados para guardar histórico 
-
-const express = require ('express')
-
-app.use(express.json())
-const porta = 3000
+const porta = 4000
 app.listen(porta, () => {} )
 
 
 
-// api envia a completion para o banco de dados MYSQL 
 
-app.post()
+
