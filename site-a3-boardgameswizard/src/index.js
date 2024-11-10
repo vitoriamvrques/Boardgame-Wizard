@@ -1,22 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
-import './App.css'; 
-import Cabecalho from './Cabecalho';
-import JanelaDaConversa from './JanelaDaConversa';
+import './styles/App.css'; 
+import App from './components/App.js';
 
-
-//app
-const App = () => {
-  return (
-    <div className="app">
-      <Cabecalho />
-      <JanelaDaConversa />
-    </div>
-  );
-};
-
-export default App;
 
 ReactDOM.render(
   <App />,
