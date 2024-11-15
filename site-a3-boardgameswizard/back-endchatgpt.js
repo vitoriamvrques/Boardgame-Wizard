@@ -4,6 +4,9 @@ const express = require('express')
 const app = express()
 app.use(express.json())
 
+const cors = require('cors');
+app.use(cors({ origin: 'http://localhost:3000' }));
+
 // Carregar chave de API da OpenAI
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY
 const openai = new OpenAI({
@@ -16,7 +19,7 @@ app.post('/pergunte-ao-chatgpt', async (req, res) => {
 
   // Definir o modelo e a função do "system"
   const model = 'gpt-3.5-turbo'
-  const systemMessage = "Você é um gerador de ideias para jogos de tabuleiro. Apenas sugira ideias para novos jogos de tabuleiro inovadores, e nada mais."
+  const systemMessage = "Você é um gerador de ideias para jogos de tabuleiro. Apenas sugira ideias para novos jogos de tabuleiro inovadores,regras do jogo e nada mais."
 
   try {
     // Chama API para a OpenAI para gerar a resposta

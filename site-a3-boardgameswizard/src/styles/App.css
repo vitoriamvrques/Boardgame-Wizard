@@ -106,3 +106,28 @@ body, html {
   margin-left: 10px;
   
 }
+
+.mensagem-balao {
+  max-width: 70%;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  color: white;
+  word-wrap: break-word;
+  display: inline-block;
+}
+
+/* Balão do usuário (à direita) */
+.balao-usuario {
+  background-color: #5c3c92;
+  color: yellow;
+  align-self: flex-end; /* Alinha o balão do usuário à direita */
+  text-align: right;
+}
+
+/* Balão do bot (à esquerda) */
+.balao-bot {
+  background-color: #fada4c;
+  color: #5426a3;
+  align-self: flex-start; /* Alinha o balão do bot à esquerda */
+}

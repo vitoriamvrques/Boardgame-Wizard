@@ -1,24 +1,68 @@
-import React from 'react';
+// import React,{ useState } from 'react';
+// import ListaDeConversas from './ListaDeConversas';
+// import CaixaDeMensagem from './CaixadeMensagem';
+// import axios from 'axios'; 
+
+// const JanelaDaConversa = () => {
+//     return (
+//         <div className="chat-container">
+//                 <ListaDeConversas />
+//             <div className="col d-flex flex-column">
+//                 <div className="chat-window flex-grow-1"> 
+//                 </div>
+//                 <CaixaDeMensagem />
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default JanelaDaConversa;
+
+import React, { useState } from 'react';
 import ListaDeConversas from './ListaDeConversas';
-import CaixaDeMensagem from './CaixadeMensagem';
+import CaixaDeMensagem from './CaixaDeMensagem';
+import axios from 'axios';
+
 
 const JanelaDaConversa = () => {
-    return (
-        <div className="chat-container">
-            {/* Sidebar à esquerda ocupando 3 colunas em tela grande */}
-                <ListaDeConversas />
-          
-            {/* Janela de conversas */}
-            <div className="col d-flex flex-column">
-                <div className="chat-window flex-grow-1"> 
-                    {/* Aqui aparecem as mensagens do chat */}
-                </div>
+  const [mensagens, setMensagens] = useState([]); // Estado para armazenar as mensagens
 
-                {/* Caixa de mensagens */}
-                <CaixaDeMensagem />
+  // Função para adicionar mensagem do usuário e enviar para a API
+  const enviarMensagem = async (texto) => {
+    const novaMensagemUsuario = { texto, autor: 'usuario' };
+    setMensagens((prevMensagens) => [...prevMensagens, novaMensagemUsuario]);
+
+    try {
+      // Envia a mensagem para o backend
+      const response = await axios.post('http://localhost:4000/pergunte-ao-chatgpt', { prompt: texto });
+      const respostaGPT = response.data.completion;
+      const novaMensagemBot = { texto: respostaGPT, autor: 'bot' };
+
+      // Adiciona a resposta do bot ao estado de mensagens
+      setMensagens((prevMensagens) => [...prevMensagens, novaMensagemBot]);
+    } catch (error) {
+      console.error('Erro ao enviar mensagem:', error);
+    }
+  };
+
+  return (
+    <div className="chat-container">
+      <ListaDeConversas />
+      <div className="col d-flex flex-column">
+        <div className="chat-window flex-grow-1">
+          {mensagens.map((msg, index) => (
+            <div
+              key={index}
+              className={`mensagem-balao ${msg.autor === 'usuario' ? 'balao-usuario' : 'balao-bot'}`}
+            >
+              {msg.texto}
             </div>
+          ))}
         </div>
-    );
+        <CaixaDeMensagem onEnviarMensagem={enviarMensagem} />
+      </div>
+    </div>
+  );
 };
 
 export default JanelaDaConversa;

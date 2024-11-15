@@ -3,6 +3,11 @@ const express = require('express')
 const app = express()
 app.use(express.json())
 
+const cors = require('cors');
+app.use(cors({
+    origin: 'http://localhost:3000'
+  }));
+
 const {DB_USER, DB_PASSWORD, DB_HOST, DB_DATABASE} = process.env
 
 app.get('/consultar', (req, res) => {

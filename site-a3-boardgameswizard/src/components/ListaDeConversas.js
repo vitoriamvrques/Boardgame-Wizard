@@ -1,9 +1,10 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 const ListaDeConversas = () => {
     const conversas = [
-        { nome: 'O MAGO', ultimaMensagem: 'Última mensagem...' },
+        { nome: 'O Mago Bossini', ultimaMensagem: 'Última mensagem...' },
         // informações que vem do banco de dados 
     ];
 
