@@ -1,6 +1,7 @@
 import React from 'react'
 import Cabecalho from './Cabecalho';
 import JanelaDaConversa from './JanelaDaConversa';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 //app
 const App = () => {

@@ -29,7 +29,7 @@ app.post('/pergunte-ao-chatgpt', async (req, res) => {
         { role: 'system', content: systemMessage },  // Define o papel de "system"
         { role: 'user', content: prompt },          // O prompt do usuário
       ],
-      max_tokens: 150, 
+      max_tokens: 250, 
     })
 
     const respostaGPT = completion.choices[0].message.content

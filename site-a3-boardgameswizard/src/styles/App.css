@@ -52,7 +52,7 @@ body, html {
 
 .chat-window {
   flex: 1;
-  background-color: rgba(74, 3, 78, 0.63); /* Fundo roxo transparente */
+  background-color: rgba(104, 41, 107, 0.63); /* Fundo roxo transparente */
   margin: 20px;
   border-radius: 10px;
   overflow-y: auto;
@@ -107,27 +107,66 @@ body, html {
   
 }
 
-.mensagem-balao {
+
+
+.balao-de-mensagem {
   max-width: 70%;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 10px;
-  color: white;
-  word-wrap: break-word;
+  padding: 10px 15px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  line-height: 1.4;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
   display: inline-block;
 }
 
-/* Balão do usuário (à direita) */
-.balao-usuario {
-  background-color: #5c3c92;
-  color: yellow;
-  align-self: flex-end; /* Alinha o balão do usuário à direita */
-  text-align: right;
+.balao-de-mensagem p {
+  margin: 0;
+  word-wrap: break-word;
 }
 
-/* Balão do bot (à esquerda) */
-.balao-bot {
-  background-color: #fada4c;
-  color: #5426a3;
-  align-self: flex-start; /* Alinha o balão do bot à esquerda */
+/* Balão do usuário */
+.balao-de-mensagem.usuario {
+  background-color: #5c3c92; /* Roxo escuro */
+  color: yellow;
+  align-self: flex-end; /* Alinha à direita */
+  text-align: right;
+  border-top-right-radius: 0; /* Para o balão ter a pontinha para a direita */
+}
+
+/* Balão do bot */
+.balao-de-mensagem.bot {
+  background-color: #fada4c; /* Amarelo claro */
+  color: #5426a3; /* Roxo */
+  align-self: flex-start; /* Alinha à esquerda */
+  text-align: left;
+  border-top-left-radius: 0; /* Para o balão ter a pontinha para a esquerda */
+}
+
+/* Adicionando as "pontas" do balão */
+
+.balao-de-mensagem.usuario::after,
+.balao-de-mensagem.bot::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid;
+}
+
+.balao-de-mensagem.usuario::after {
+  right: -10px; /* Coloca a ponta à direita do balão */
+  border-top-color: #5c3c92; /* Cor do balão do usuário */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.balao-de-mensagem.bot::after {
+  left: -10px; /* Coloca a ponta à esquerda do balão */
+  border-top-color: #fada4c; /* Cor do balão do bot */
+  top: 50%;
+  transform: translateY(-50%);
 }
